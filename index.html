@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col border border-light border-3 m-2">
+                <!--Monetary Progression-->
+                <ul class="h3">
+                    <b><i><li>$1,000,000</li></i></b>
+                    <li>$500,000</li>
+                    <li>$250,000</li>
+                    <li>$125,000</li>
+                    <li>$64,000</li>
+                    <b><i><li>$32,000</li></i></b>
+                    <li>$16,000</li>
+                    <li>$8,000</li>
+                    <li>$4,000</li>
+                    <li>$2,000</li>
+                    <b><i><li>$1,000</li></i></b>
+                    <li>$500</li>
+                    <li>$300</li>
+                    <li>$200</li>
+                    <li>$100</li>
+                </ul>
+            </div>
+            <div class="col-md-8 col-12 text-center m-2">
+                <!--Timer and Logo-->
+                <img class="img-fluid" src="assets/images/logo.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center h1 timerText"></div>
+        </div>
+        <div class="row">
+            <!--Question text-->
+            <div class="col text-center border border-light border-3 p-2 m-2 h2" id="question"></div>
+        </div>
+        <div class="row">
+            <!--Answer A-->
+            <div class="col border border-light border-3 m-2 p-2 ans h3" id="a"></div>
+            <!--Answer B-->
+            <div class="col border border-light border-3 m-2 p-2 ans h3" id="b"></div>
+        </div>
+        <div class="row">
+            <!--Answer C-->
+            <div class="col border border-light border-3 m-2 p-2 ans h3" id="c"></div>
+            <!--Answer D-->
+            <div class="col border border-light border-3 m-2 p-2 ans h3" id="d"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <button type="button" class="btn btn-success btn-lg" onclick="checkAnswers()">Final Answer</button>
+            </div>
+            <div class="col text-center">
+                <button type="button" class="btn btn-warning btn-lg" onclick="walkAway()">Walk Away</button>
+            </div>
+            <div class="col text-center">
+                    <button type="button" class="btn btn-danger btn-lg" onclick="reset()">Reset Game</button>
+            </div>
+        </div>
+    </div>
+    <!--End of Page HTML and Bootstrap container-->
+
+    <!-- Initial Instructions Modal Pop-up -->
+    <div class="modal fade" id="ins" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark" id="exampleModalCenterTitle">Instructions</h5>
+            </div>
+            <div class="modal-body text-dark">
+              You will have 30 seconds to answer each question.  Use the Final Answer button to submit an answer before the timer is up.  You can also click the Walk Away button to leave with the money you have now.  Otherwise your winnings fall to the last checkpoint!  Good Luck!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="nextQuestion(); start();">Start Game!</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <br>
+</body>
+</html>
